@@ -56,9 +56,18 @@ impl App {
         // Try to restore state
         if let Some(state) = load_state() {
             if state.day_num == day_num {
-                app.guesses = state.guesses;
-                app.phase = state.phase;
-                app.final_time = state.final_time;
+                match state.phase {
+                    // Finished game: keep stats but reset to splash for replay
+                    GamePhase::Won | GamePhase::Lost => {
+                        app.phase = GamePhase::Splash;
+                    }
+                    // In-progress game: resume where we left off
+                    _ => {
+                        app.guesses = state.guesses;
+                        app.phase = state.phase;
+                        app.final_time = state.final_time;
+                    }
+                }
                 app.ref_code = state.ref_code;
                 app.session_token = state.session_token;
             }

@@ -130,19 +130,6 @@ fn handle_post_game(app: &mut App, code: KeyCode) -> bool {
             }
             false
         }
-        KeyCode::Char('r') => {
-            // Reset today's game — go back to splash
-            app.guesses.clear();
-            app.phase = GamePhase::Splash;
-            app.final_time = None;
-            app.timer_start = None;
-            app.elapsed_ms = 0;
-            app.active_param = 0;
-            app.editing_free = false;
-            app.free_input_buffer.clear();
-            app.persist();
-            false
-        }
         _ => false,
     }
 }
