@@ -1,0 +1,27 @@
+[package]
+name = "ffmpuzzle"
+version = "0.1.0"
+edition = "2024"
+description = "The daily FFmpeg encoding puzzle - CLI edition"
+license = "MIT"
+repository = "https://github.com/ludobos/ffmpuzzle-cli"
+keywords = ["ffmpeg", "puzzle", "cli", "tui", "encoding"]
+categories = ["command-line-utilities", "games"]
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+ratatui = "0.29"
+crossterm = "0.28"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0.12", features = ["json", "rustls-tls"], default-features = false }
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+chrono = { version = "0.4", features = ["serde"] }
+dirs = "6"
+arboard = "3"
+rand = "0.8"
+
+[profile.release]
+lto = true
+strip = true
+codegen-units = 1
