@@ -111,7 +111,7 @@ pub fn render(frame: &mut Frame, app: &App) {
 
     // Help
     let share_cmd = if won { "share --brag" } else { "share --shame" };
-    let help = format!("[s] {share_cmd}   [q] quit");
+    let help = format!("[s] {share_cmd}   [r] reset   [q] quit");
     frame.render_widget(
         Paragraph::new(help)
             .style(Style::default().fg(Color::Rgb(100, 100, 100)))
