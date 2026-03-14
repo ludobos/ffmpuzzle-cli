@@ -18,11 +18,13 @@ Play the daily FFmpeg encoding puzzle from your terminal.
 
 ## Install
 
-### macOS
+### From crates.io
 
 ```bash
-brew install bostral/tap/ffmpuzzle
+cargo install ffmpuzzle
 ```
+
+Requires Rust 1.85+ (edition 2024).
 
 ### From GitHub Releases
 
@@ -94,4 +96,4 @@ Color-coded feedback after each guess:
 
 ## License
 
-Proprietary. Binaries are free to use. Source code is not distributed.
+MIT — see [LICENSE](LICENSE).
